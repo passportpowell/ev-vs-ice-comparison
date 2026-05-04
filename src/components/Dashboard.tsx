@@ -121,6 +121,10 @@ export function Dashboard({ data }: DashboardProps) {
   const [selectedVehicleId, setSelectedVehicleId] = useState(
     data.vehicles[0]?.id ?? ""
   );
+  const [comparisonSelection, setComparisonSelection] = useState<{
+    anchorVehicleId: string;
+    ids: string[];
+  }>({ anchorVehicleId: "", ids: [] });
   const [registration, setRegistration] = useState("");
   const [importResult, setImportResult] = useState<string | null>(null);
   const [provenanceReport, setProvenanceReport] =
@@ -233,6 +237,22 @@ export function Dashboard({ data }: DashboardProps) {
     data.vehicles.find((vehicle) => vehicle.id === selectedVehicleId) ??
     data.vehicles[0]
   ) as Vehicle;
+  const vehicleById = useMemo(
+    () => new Map(data.vehicles.map((vehicle) => [vehicle.id, vehicle])),
+    [data.vehicles]
+  );
+  const vehicleOptions = useMemo(
+    () =>
+      [...data.vehicles].sort(
+        (a, b) =>
+          a.segment.localeCompare(b.segment) ||
+          a.powertrain.localeCompare(b.powertrain) ||
+          a.make.localeCompare(b.make) ||
+          a.model.localeCompare(b.model) ||
+          a.trim.localeCompare(b.trim)
+      ),
+    [data.vehicles]
+  );
   const catalogMakes = useMemo(
     () => uniqueSorted(data.vehicles.map((vehicle) => vehicle.make)),
     [data.vehicles]
@@ -350,6 +370,34 @@ export function Dashboard({ data }: DashboardProps) {
   const selectedCatalogRow = allRows.find(
     (row) => row.vehicle_id === selectedCatalogVehicle.id
   );
+  const equivalentOptions = useMemo(
+    () => rankEquivalentVehicles(data.vehicles, selectedCatalogVehicle),
+    [data.vehicles, selectedCatalogVehicle]
+  );
+  const activeComparisonVehicleIds = useMemo(
+    () =>
+      comparisonSelection.anchorVehicleId === selectedCatalogVehicle.id
+        ? comparisonSelection.ids
+        : equivalentOptions.slice(0, 3).map((vehicle) => vehicle.id),
+    [comparisonSelection, equivalentOptions, selectedCatalogVehicle.id]
+  );
+  const selectedComparisonIds = useMemo(
+    () =>
+      uniqueIds([
+        selectedCatalogVehicle.id,
+        ...activeComparisonVehicleIds.filter(
+          (id) => id !== selectedCatalogVehicle.id
+        )
+      ]).slice(0, 4),
+    [activeComparisonVehicleIds, selectedCatalogVehicle.id]
+  );
+  const equivalentComparisonRows = useMemo(
+    () =>
+      selectedComparisonIds
+        .map((id) => allRows.find((row) => row.vehicle_id === id))
+        .filter((row): row is ScenarioResult => Boolean(row)),
+    [allRows, selectedComparisonIds]
+  );
   const tariffComparisonRows = useMemo(
     () =>
       buildEnergyComparisonRows(
@@ -404,6 +452,17 @@ export function Dashboard({ data }: DashboardProps) {
     setCatalogModelFilter("all");
     setCatalogYearFilter("all");
     setCatalogPowertrainFilter("all");
+  }
+
+  function updateComparisonVehicle(slot: number, vehicleId: string) {
+    setComparisonSelection(() => {
+      const next = [...activeComparisonVehicleIds];
+      next[slot] = vehicleId;
+      return {
+        anchorVehicleId: selectedCatalogVehicle.id,
+        ids: next.slice(0, 3)
+      };
+    });
   }
 
   async function importDvlaVehicle(event: FormEvent<HTMLFormElement>) {
@@ -557,6 +616,12 @@ export function Dashboard({ data }: DashboardProps) {
       <section className="workspace-grid">
         <article className="panel panel-large">
           <PanelTitle icon={<Car size={18} aria-hidden />} title="Vehicle Cost vs CO2e" />
+          <PanelIntro>
+            Each dot is a trim in the current filter. Left means lower total cost
+            per mile; lower means lower lifecycle CO2e. This shows whether a cheap
+            vehicle is also clean, or whether cost and carbon pull in different
+            directions.
+          </PanelIntro>
           <div className="chart-frame">
             <ResponsiveContainer width="100%" height={330}>
               <ScatterChart margin={{ top: 18, right: 24, bottom: 18, left: 0 }}>
@@ -589,6 +654,11 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel">
           <PanelTitle icon={<Workflow size={18} aria-hidden />} title="Powertrain Summary" />
+          <PanelIntro>
+            This groups the visible trims by powertrain and averages their total
+            cost per mile. It explains whether the filter is being led by EVs,
+            petrol, diesel, or hybrids.
+          </PanelIntro>
           <div className="summary-list">
             {summary.map((item) => (
               <div className="summary-row" key={item.powertrain}>
@@ -610,6 +680,11 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel panel-large">
           <PanelTitle icon={<PlugZap size={18} aria-hidden />} title="UK Tariffs & Fuel" />
+          <PanelIntro>
+            These cards isolate annual energy cost from the wider ownership model:
+            EV electricity uses your tariff, cheap-rate share, public charging, and
+            standing charge allocation; petrol and diesel use the current fuel rate.
+          </PanelIntro>
           <div className="tariff-controls">
             <label className="tariff-field tariff-select">
               <span>EV tariff</span>
@@ -728,6 +803,11 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel">
           <PanelTitle icon={<Car size={18} aria-hidden />} title="Trim-Aware Catalog" />
+          <PanelIntro>
+            The count below is the number of trims matching the active catalog
+            filters, not the whole market. Reset clears the filters; the selected
+            model dropdown shows all seeded trims for that make and model.
+          </PanelIntro>
           <div className="catalog-coverage" aria-label="Catalog coverage">
             <span>{catalogCoverage.trims} trims</span>
             <span>{catalogCoverage.makes} makes</span>
@@ -942,7 +1022,147 @@ export function Dashboard({ data }: DashboardProps) {
         </article>
 
         <article className="panel panel-large">
+          <PanelTitle
+            icon={<ListChecks size={18} aria-hidden />}
+            title="Equivalent Vehicle Comparator"
+          />
+          <PanelIntro>
+            This compares the selected trim against close alternatives. Automatic
+            picks favour the same segment and body style, then switch powertrain so
+            an EV can be judged against similar petrol, diesel, and hybrid vehicles.
+          </PanelIntro>
+          <div className="equivalent-controls">
+            <div className="comparison-anchor">
+              <span>Selected trim</span>
+              <strong>{vehicleDisplayName(selectedCatalogVehicle)}</strong>
+              <small>
+                {selectedCatalogVehicle.segment} - {selectedCatalogVehicle.body_style} -{" "}
+                {selectedCatalogVehicle.powertrain}
+              </small>
+            </div>
+            {[0, 1, 2].map((slot) => (
+              <label className="comparison-select" key={slot}>
+                <span>Compare with {slot + 1}</span>
+                <select
+                  onChange={(event) =>
+                    updateComparisonVehicle(slot, event.target.value)
+                  }
+                  value={
+                    activeComparisonVehicleIds[slot] ??
+                    equivalentOptions[slot]?.id ??
+                    ""
+                  }
+                >
+                  <option value="">No vehicle</option>
+                  {vehicleOptions.map((vehicle) => (
+                    <option key={vehicle.id} value={vehicle.id}>
+                      {compareOptionLabel(vehicle)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            ))}
+          </div>
+          <div className="suggestion-strip" aria-label="Equivalent suggestions">
+            {equivalentOptions.slice(0, 5).map((vehicle, index) => (
+              <button
+                key={vehicle.id}
+                onClick={() => updateComparisonVehicle(index % 3, vehicle.id)}
+                type="button"
+              >
+                <span>{vehicle.powertrain}</span>
+                {vehicleDisplayName(vehicle)}
+              </button>
+            ))}
+          </div>
+          <div className="table-wrap comparison-table-wrap">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <th key={row.vehicle_id}>{vehicleDisplayName(row)}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Powertrain</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-powertrain`}>{row.powertrain}</td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Purchase price</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-price`}>
+                      {money(vehicleById.get(row.vehicle_id)?.purchase_price_gbp ?? 0)}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Energy / yr</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-energy`}>
+                      {money(row.annual_energy_cost_gbp)}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Maintenance / yr</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-maintenance`}>
+                      {money(row.maintenance_cost_gbp / row.ownership_years)}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Depreciation</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-depreciation`}>
+                      {money(row.depreciation_cost_gbp)}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Total cost / mile</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-mile`}>
+                      {money(row.total_cost_per_mile_gbp)}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Lifecycle CO2e</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-co2`}>
+                      {row.lifecycle_tonnes_co2e} t
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row">Break-even vs ICE</th>
+                  {equivalentComparisonRows.map((row) => (
+                    <td key={`${row.vehicle_id}-breakeven`}>
+                      {row.break_even_miles_vs_segment_ice
+                        ? compactNumber(row.break_even_miles_vs_segment_ice)
+                        : "n/a"}
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article className="panel panel-large">
           <PanelTitle icon={<Database size={18} aria-hidden />} title="Ranked Comparison" />
+          <PanelIntro>
+            This is the league table for the current scenario and filters, sorted
+            cheapest first by total cost per mile. It includes depreciation,
+            energy/fuel, maintenance, ownership period, and the tariff/fuel inputs
+            above.
+          </PanelIntro>
           <div className="table-wrap">
             <table>
               <thead>
@@ -984,6 +1204,11 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel">
           <PanelTitle icon={<BrainCircuit size={18} aria-hidden />} title="ML Cost Model" />
+          <PanelIntro>
+            R2 and MAE are global training diagnostics, so they stay stable when
+            you pick a trim. The selected-vehicle signal below updates from the
+            current scenario to keep the model context tied to your choice.
+          </PanelIntro>
           <div className="model-score">
             <strong>{data.model.r2}</strong>
             <span>R2</span>
@@ -998,10 +1223,27 @@ export function Dashboard({ data }: DashboardProps) {
               </div>
             ))}
           </div>
+          <div className="selected-model-signal">
+            <strong>{vehicleDisplayName(selectedCatalogVehicle)}</strong>
+            <span>
+              {selectedCatalogRow
+                ? `${money(selectedCatalogRow.total_cost_per_mile_gbp)}/mi current scenario`
+                : "No scenario row available"}
+            </span>
+            <small>
+              Top model drivers show which inputs matter most across the training
+              grid, not a per-vehicle retrain.
+            </small>
+          </div>
         </article>
 
         <article className="panel">
           <PanelTitle icon={<Gauge size={18} aria-hidden />} title="Signal Processing" />
+          <PanelIntro>
+            This bar chart compares driving-cycle traces. Energy stress rises with
+            speed, acceleration volatility, and stop-start behaviour, helping show
+            why the same vehicle can perform differently in city and motorway use.
+          </PanelIntro>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={data.signal_processing} margin={{ top: 12, right: 12, left: 0, bottom: 0 }}>
               <CartesianGrid stroke="#dfe5df" strokeDasharray="4 4" />
@@ -1027,6 +1269,11 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel panel-large">
           <PanelTitle icon={<Bot size={18} aria-hidden />} title="Agentic RAG Advisor" />
+          <PanelIntro>
+            The advisor retrieves project facts, chooses a scenario, runs the
+            deterministic comparison, and cites the data it used so the answer can
+            be inspected rather than trusted blindly.
+          </PanelIntro>
           <form className="agent-form" onSubmit={askAgent}>
             <input
               aria-label="Agent question"
@@ -1079,6 +1326,11 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel">
           <PanelTitle icon={<Database size={18} aria-hidden />} title="REST API Preview" />
+          <PanelIntro>
+            This previews the API payload for the active scenario and filters. It
+            shows how the same data can be reused by another frontend, automation,
+            or report generator.
+          </PanelIntro>
           <code className="api-url">{selectedApiUrl}</code>
           <pre className="api-sample">
             {JSON.stringify(
@@ -1204,6 +1456,10 @@ function PanelTitle({ icon, title }: { icon: ReactNode; title: string }) {
   );
 }
 
+function PanelIntro({ children }: { children: ReactNode }) {
+  return <p className="panel-intro">{children}</p>;
+}
+
 function VehicleTooltip({
   active,
   payload
@@ -1275,6 +1531,31 @@ function labelise(value: string): string {
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+}
+
+function compareOptionLabel(vehicle: Vehicle): string {
+  return `${labelise(vehicle.segment)} - ${vehicleDisplayName(vehicle)} - ${vehicle.powertrain}`;
+}
+
+function rankEquivalentVehicles(vehicles: Vehicle[], selected: Vehicle): Vehicle[] {
+  return vehicles
+    .filter((vehicle) => vehicle.id !== selected.id)
+    .map((vehicle) => ({
+      vehicle,
+      score:
+        Number(vehicle.segment === selected.segment) * 70 +
+        Number(vehicle.body_style === selected.body_style) * 35 +
+        Number(vehicle.fuel_type !== selected.fuel_type) * 24 +
+        Number(vehicle.uk_market_status === "current") * 12 -
+        Math.abs(vehicle.purchase_price_gbp - selected.purchase_price_gbp) / 1200 -
+        Math.abs(vehicle.model_year - selected.model_year) * 1.5
+    }))
+    .sort((a, b) => b.score - a.score)
+    .map((item) => item.vehicle);
+}
+
+function uniqueIds(values: string[]): string[] {
+  return Array.from(new Set(values.filter(Boolean)));
 }
 
 function cleanFeature(value: string): string {

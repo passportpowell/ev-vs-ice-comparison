@@ -19,6 +19,16 @@ def test_pipeline_builds_expected_dataset_shape():
     assert len(dataset["rag_corpus"]) >= len(dataset["vehicles"])
     assert len(dataset["source_registry"]) >= 3
     assert all(vehicle["trim"] for vehicle in dataset["vehicles"])
+    assert (
+        len(
+            [
+                vehicle
+                for vehicle in dataset["vehicles"]
+                if vehicle["make"] == "Tesla" and vehicle["model"] == "Model Y"
+            ]
+        )
+        >= 4
+    )
     assert dataset["model"]["r2"] > 0.95
 
 

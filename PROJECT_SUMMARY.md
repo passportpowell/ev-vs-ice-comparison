@@ -22,6 +22,7 @@ This repo demonstrates:
 - Source provenance handling for conflicting values between DVLA import data and the local trim catalog.
 - Source provenance for tariff values, including supplier/table notes, transcript-derived notes, and region-specific standing-charge caveats.
 - Live-current price automation through a GOV.UK/DESNZ weekly road fuel CSV endpoint with fallback metadata.
+- Equivalent vehicle comparison that automatically proposes same-segment EV, petrol, diesel, and hybrid alternatives while still allowing manual choices.
 - Confidence-scored trim matching for imported registration-level data.
 - Production hardening including health checks, security headers, dependency audit, request timeouts, and an error boundary.
 - AI and machine learning through a trained cost-per-mile model.
@@ -47,7 +48,9 @@ Users can:
 - Refresh petrol and diesel prices from GOV.UK/DESNZ, then override them manually if needed.
 - Filter by vehicle segment.
 - Compare vehicles on a cost-versus-carbon chart.
+- Read plain-English explanations under charts and analytical panels so every visual says what it shows and why it matters.
 - Review ranked vehicle results.
+- Compare a selected trim against equivalent vehicles by purchase price, energy/fuel, maintenance, depreciation, total cost per mile, lifecycle CO2e, and break-even mileage.
 - View powertrain summaries.
 - Inspect ML model metrics and feature importance.
 - View signal-processing features from driving cycles.
@@ -158,6 +161,10 @@ The import flow also ranks likely catalog trims. The matcher scores make, fuel t
 
 The catalog filters use availability windows. This avoids the false impression that a trim only exists in its representative `model_year`; a 2016-2026 availability span is searchable year by year.
 
+The catalog `Showing X of Y` label is filter state: `X` is how many seeded trims match the active search, make, model, year, and powertrain filters. The 2024 Tesla Model Y seed coverage now includes RWD, Long Range RWD, Long Range AWD, and Performance AWD rather than a single RWD-only row.
+
+The equivalent comparator uses the selected trim as an anchor, proposes nearby alternatives by segment, body style, market status, price proximity, and opposite powertrain, then lets the user override each comparison slot. This is the intended EV versus equivalent ICE workflow: pick an EV such as a Model Y and compare it directly with petrol, diesel, and hybrid SUV alternatives.
+
 ## UK Tariffs And Fuel Prices
 
 The tariff feature uses `data/raw/ev_tariffs.csv` as a transparent seed dataset. It includes tariffs such as Intelligent Octopus Go, Octopus Go, EDF GoElectric, E.ON Next Drive, OVO Charge Anytime, British Gas EV Power, So Energy, Scottish Power, Good Energy, and Utility Warehouse.
@@ -184,7 +191,7 @@ The project includes several deployment-oriented safeguards:
 
 The Python pipeline trains a Random Forest regressor to predict total cost per mile from vehicle and scenario features. The app displays model quality metrics and feature importance so the ML work is visible and explainable.
 
-The model is intentionally lightweight and reproducible. It is meant to demonstrate ML workflow design rather than hide logic behind a black box.
+The model is intentionally lightweight and reproducible. It is meant to demonstrate ML workflow design rather than hide logic behind a black box. The R2, MAE, and feature importance values are global model diagnostics and do not change when a user selects a vehicle; the selected-vehicle cost signal underneath them updates from the active scenario.
 
 ### RAG
 

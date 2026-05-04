@@ -296,6 +296,13 @@ h1 {
   letter-spacing: 0;
 }
 
+.panel-intro {
+  margin: -4px 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .chart-frame {
   width: 100%;
   min-height: 330px;
@@ -433,6 +440,32 @@ td span {
   background: var(--blue);
 }
 
+.selected-model-signal {
+  display: grid;
+  gap: 5px;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.selected-model-signal strong,
+.selected-model-signal span,
+.selected-model-signal small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.selected-model-signal span {
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.selected-model-signal small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 .tariff-controls {
   display: grid;
   grid-template-columns: minmax(230px, 1.4fr) repeat(3, minmax(130px, 1fr));
@@ -546,6 +579,96 @@ td span {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.45;
+}
+
+.equivalent-controls {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.2fr) repeat(3, minmax(170px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.comparison-anchor,
+.comparison-select {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.comparison-anchor span,
+.comparison-select span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.comparison-anchor strong,
+.comparison-anchor small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.comparison-anchor small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.comparison-select select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #cfd8d1;
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0 9px;
+}
+
+.suggestion-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.suggestion-strip button {
+  display: inline-grid;
+  gap: 2px;
+  max-width: 220px;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.suggestion-strip button:focus,
+.suggestion-strip button:hover {
+  border-color: var(--teal);
+}
+
+.suggestion-strip span {
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.comparison-table-wrap {
+  margin-top: 4px;
+}
+
+.comparison-table {
+  min-width: 920px;
+}
+
+.comparison-table th:first-child {
+  width: 180px;
 }
 
 .catalog-controls {
@@ -1091,6 +1214,7 @@ td span {
   .catalog-controls,
   .catalog-coverage,
   .catalog-card dl,
+  .equivalent-controls,
   .tariff-controls,
   .energy-comparison-grid {
     grid-template-columns: 1fr;

@@ -12,7 +12,8 @@
     "test": "vitest run",
     "data:build": "python -m pipeline.ev_ice_pipeline.build",
     "data:test": "pytest tests/python",
-    "check": "npm run data:build && npm run data:test && npm run lint && npm run test && npm run build"
+    "security:audit": "npm audit --audit-level=moderate",
+    "check": "npm run data:build && npm run data:test && npm run lint && npm run test && npm run security:audit && npm run build"
   },
   "dependencies": {
     "lucide-react": "1.14.0",

@@ -9,6 +9,7 @@ import {
 
 const DVLA_URL =
   "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles";
+const REQUEST_TIMEOUT_MS = 8000;
 
 export async function GET(request: NextRequest) {
   const registration = request.nextUrl.searchParams
@@ -31,6 +32,13 @@ export async function GET(request: NextRequest) {
     );
   }
 
+  if (!/^[A-Z0-9]{2,8}$/.test(registration)) {
+    return NextResponse.json(
+      { error: "registration must be a valid UK registration-like value" },
+      { status: 400 }
+    );
+  }
+
   if (!apiKey) {
     return NextResponse.json(
       {
@@ -42,17 +50,38 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const response = await fetch(DVLA_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": apiKey
-    },
-    body: JSON.stringify({ registrationNumber: registration }),
-    cache: "no-store"
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let response: Response;
 
-  const payload = await response.json();
+  try {
+    response = await fetch(DVLA_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey
+      },
+      body: JSON.stringify({ registrationNumber: registration }),
+      cache: "no-store",
+      signal: controller.signal
+    });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error:
+          error instanceof Error && error.name === "AbortError"
+            ? "DVLA request timed out"
+            : "DVLA request failed"
+      },
+      { status: upstreamUnavailableStatus(error) }
+    );
+  } finally {
+    clearTimeout(timeout);
+  }
+
+  const payload = await response.json().catch(() => ({
+    error: "DVLA returned a non-JSON response"
+  }));
   if (!response.ok) {
     return NextResponse.json(payload, { status: response.status });
   }
@@ -72,4 +101,8 @@ export async function GET(request: NextRequest) {
       5
     )
   });
+}
+
+function upstreamUnavailableStatus(error: unknown): number {
+  return error instanceof Error && error.name === "AbortError" ? 504 : 502;
 }

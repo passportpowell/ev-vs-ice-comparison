@@ -41,7 +41,6 @@ import {
 import { runPortfolioAgent } from "@/lib/agent";
 import type { CatalogMatch, ProvenanceReport } from "@/lib/dvla";
 import {
-  firstVehicleMatching,
   uniqueSorted,
   vehicleCatalogLabel,
   vehicleDisplayName
@@ -93,6 +92,11 @@ export function Dashboard({ data }: DashboardProps) {
   const [provenanceReport, setProvenanceReport] =
     useState<ProvenanceReport | null>(null);
   const [matchResults, setMatchResults] = useState<CatalogMatch[]>([]);
+  const [catalogQuery, setCatalogQuery] = useState("");
+  const [catalogMakeFilter, setCatalogMakeFilter] = useState("all");
+  const [catalogModelFilter, setCatalogModelFilter] = useState("all");
+  const [catalogYearFilter, setCatalogYearFilter] = useState("all");
+  const [catalogPowertrainFilter, setCatalogPowertrainFilter] = useState("all");
 
   const overrides: ScenarioOverrides = useMemo(
     () => ({
@@ -152,40 +156,111 @@ export function Dashboard({ data }: DashboardProps) {
     () =>
       uniqueSorted(
         data.vehicles
-          .filter((vehicle) => vehicle.make === selectedCatalogVehicle.make)
+          .filter((vehicle) =>
+            catalogMakeFilter === "all" ? true : vehicle.make === catalogMakeFilter
+          )
           .map((vehicle) => vehicle.model)
       ),
-    [data.vehicles, selectedCatalogVehicle.make]
+    [catalogMakeFilter, data.vehicles]
   );
   const catalogYears = useMemo(
-    () =>
-      uniqueSorted(
-        data.vehicles
-          .filter(
-            (vehicle) =>
-              vehicle.make === selectedCatalogVehicle.make &&
-              vehicle.model === selectedCatalogVehicle.model
-          )
-          .map((vehicle) => vehicle.model_year)
-      ).sort((a, b) => Number(b) - Number(a)),
-    [data.vehicles, selectedCatalogVehicle.make, selectedCatalogVehicle.model]
+    () => {
+      const minYear = Math.min(
+        ...data.vehicles.map((vehicle) => vehicle.available_from_year)
+      );
+      const maxYear = Math.max(
+        ...data.vehicles.map((vehicle) => vehicle.available_to_year)
+      );
+      return Array.from({ length: maxYear - minYear + 1 }, (_, index) =>
+        String(maxYear - index)
+      );
+    },
+    [data.vehicles]
   );
-  const catalogTrims = useMemo(
+  const catalogPowertrains = useMemo(
+    () => uniqueSorted(data.vehicles.map((vehicle) => vehicle.powertrain)),
+    [data.vehicles]
+  );
+  const filteredCatalogVehicles = useMemo(
+    () =>
+      data.vehicles
+        .filter(
+          (vehicle) => catalogMakeFilter === "all" || vehicle.make === catalogMakeFilter
+        )
+        .filter(
+          (vehicle) =>
+            catalogModelFilter === "all" || vehicle.model === catalogModelFilter
+        )
+        .filter(
+          (vehicle) =>
+            catalogYearFilter === "all" ||
+            (vehicle.available_from_year <= Number(catalogYearFilter) &&
+              vehicle.available_to_year >= Number(catalogYearFilter))
+        )
+        .filter(
+          (vehicle) =>
+            catalogPowertrainFilter === "all" ||
+            vehicle.powertrain === catalogPowertrainFilter
+        )
+        .filter((vehicle) => {
+          if (!catalogQuery.trim()) {
+            return true;
+          }
+          return [
+            vehicle.make,
+            vehicle.model,
+            vehicle.trim,
+            vehicle.model_year,
+            vehicle.powertrain,
+            vehicle.fuel_type,
+            vehicle.segment,
+            vehicle.body_style
+          ]
+            .join(" ")
+            .toLowerCase()
+            .includes(catalogQuery.toLowerCase().trim());
+        })
+        .sort(
+          (a, b) =>
+            b.model_year - a.model_year ||
+            a.make.localeCompare(b.make) ||
+            a.model.localeCompare(b.model) ||
+            a.trim.localeCompare(b.trim)
+        ),
+    [
+      catalogMakeFilter,
+      catalogModelFilter,
+      catalogPowertrainFilter,
+      catalogQuery,
+      catalogYearFilter,
+      data.vehicles
+    ]
+  );
+  const catalogCoverage = useMemo(() => {
+    const availabilityStarts = data.vehicles.map(
+      (vehicle) => vehicle.available_from_year
+    );
+    const availabilityEnds = data.vehicles.map(
+      (vehicle) => vehicle.available_to_year
+    );
+    return {
+      minAvailabilityYear: Math.min(...availabilityStarts),
+      maxAvailabilityYear: Math.max(...availabilityEnds),
+      makes: catalogMakes.length,
+      models: uniqueSorted(data.vehicles.map((vehicle) => vehicle.model)).length,
+      trims: data.vehicles.length
+    };
+  }, [catalogMakes.length, data.vehicles]);
+  const catalogTrimsForSelectedModel = useMemo(
     () =>
       data.vehicles
         .filter(
           (vehicle) =>
             vehicle.make === selectedCatalogVehicle.make &&
-            vehicle.model === selectedCatalogVehicle.model &&
-            vehicle.model_year === selectedCatalogVehicle.model_year
+            vehicle.model === selectedCatalogVehicle.model
         )
         .sort((a, b) => a.trim.localeCompare(b.trim)),
-    [
-      data.vehicles,
-      selectedCatalogVehicle.make,
-      selectedCatalogVehicle.model,
-      selectedCatalogVehicle.model_year
-    ]
+    [data.vehicles, selectedCatalogVehicle.make, selectedCatalogVehicle.model]
   );
   const selectedCatalogRow = allRows.find(
     (row) => row.vehicle_id === selectedCatalogVehicle.id
@@ -209,8 +284,12 @@ export function Dashboard({ data }: DashboardProps) {
     setAgentQuestion(agentDraft);
   }
 
-  function setCatalogVehicle(predicate: (vehicle: Vehicle) => boolean) {
-    setSelectedVehicleId(firstVehicleMatching(data.vehicles, predicate).id);
+  function resetCatalogFilters() {
+    setCatalogQuery("");
+    setCatalogMakeFilter("all");
+    setCatalogModelFilter("all");
+    setCatalogYearFilter("all");
+    setCatalogPowertrainFilter("all");
   }
 
   async function importDvlaVehicle(event: FormEvent<HTMLFormElement>) {
@@ -412,15 +491,33 @@ export function Dashboard({ data }: DashboardProps) {
 
         <article className="panel">
           <PanelTitle icon={<Car size={18} aria-hidden />} title="Trim-Aware Catalog" />
+          <div className="catalog-coverage" aria-label="Catalog coverage">
+            <span>{catalogCoverage.trims} trims</span>
+            <span>{catalogCoverage.makes} makes</span>
+            <span>{catalogCoverage.models} models</span>
+            <span>
+              {catalogCoverage.minAvailabilityYear}-{catalogCoverage.maxAvailabilityYear}
+            </span>
+          </div>
           <div className="catalog-controls">
+            <label>
+              <span>Search</span>
+              <input
+                onChange={(event) => setCatalogQuery(event.target.value)}
+                placeholder="make, model, trim, fuel"
+                value={catalogQuery}
+              />
+            </label>
             <label>
               <span>Make</span>
               <select
-                onChange={(event) =>
-                  setCatalogVehicle((vehicle) => vehicle.make === event.target.value)
-                }
-                value={selectedCatalogVehicle.make}
+                onChange={(event) => {
+                  setCatalogMakeFilter(event.target.value);
+                  setCatalogModelFilter("all");
+                }}
+                value={catalogMakeFilter}
               >
+                <option value="all">All makes</option>
                 {catalogMakes.map((make) => (
                   <option key={make} value={make}>
                     {make}
@@ -431,15 +528,10 @@ export function Dashboard({ data }: DashboardProps) {
             <label>
               <span>Model</span>
               <select
-                onChange={(event) =>
-                  setCatalogVehicle(
-                    (vehicle) =>
-                      vehicle.make === selectedCatalogVehicle.make &&
-                      vehicle.model === event.target.value
-                  )
-                }
-                value={selectedCatalogVehicle.model}
+                onChange={(event) => setCatalogModelFilter(event.target.value)}
+                value={catalogModelFilter}
               >
+                <option value="all">All models</option>
                 {catalogModels.map((model) => (
                   <option key={model} value={model}>
                     {model}
@@ -448,18 +540,12 @@ export function Dashboard({ data }: DashboardProps) {
               </select>
             </label>
             <label>
-              <span>Year</span>
+              <span>Available in</span>
               <select
-                onChange={(event) =>
-                  setCatalogVehicle(
-                    (vehicle) =>
-                      vehicle.make === selectedCatalogVehicle.make &&
-                      vehicle.model === selectedCatalogVehicle.model &&
-                      vehicle.model_year === Number(event.target.value)
-                  )
-                }
-                value={selectedCatalogVehicle.model_year}
+                onChange={(event) => setCatalogYearFilter(event.target.value)}
+                value={catalogYearFilter}
               >
+                <option value="all">Any year</option>
                 {catalogYears.map((year) => (
                   <option key={year} value={year}>
                     {year}
@@ -468,18 +554,45 @@ export function Dashboard({ data }: DashboardProps) {
               </select>
             </label>
             <label>
-              <span>Trim</span>
+              <span>Powertrain</span>
               <select
-                onChange={(event) => setSelectedVehicleId(event.target.value)}
-                value={selectedCatalogVehicle.id}
+                onChange={(event) => setCatalogPowertrainFilter(event.target.value)}
+                value={catalogPowertrainFilter}
               >
-                {catalogTrims.map((vehicle) => (
-                  <option key={vehicle.id} value={vehicle.id}>
-                    {vehicleCatalogLabel(vehicle)}
+                <option value="all">All powertrains</option>
+                {catalogPowertrains.map((powertrain) => (
+                  <option key={powertrain} value={powertrain}>
+                    {powertrain}
                   </option>
                 ))}
               </select>
             </label>
+          </div>
+          <div className="catalog-actions">
+            <button onClick={resetCatalogFilters} type="button">
+              Reset
+            </button>
+            <span>
+              Showing {filteredCatalogVehicles.length} of {data.vehicles.length}
+            </span>
+          </div>
+          <div className="catalog-results" aria-label="Catalog results">
+            {filteredCatalogVehicles.slice(0, 8).map((vehicle) => (
+              <button
+                className={vehicle.id === selectedCatalogVehicle.id ? "active" : ""}
+                key={vehicle.id}
+                onClick={() => setSelectedVehicleId(vehicle.id)}
+                type="button"
+              >
+                <span>
+                  <b>{vehicleDisplayName(vehicle)}</b>
+                  <small>
+                    {vehicle.available_from_year}-{vehicle.available_to_year} {vehicle.powertrain} - {vehicle.uk_market_status}
+                  </small>
+                </span>
+                <em>{vehicleCatalogLabel(vehicle)}</em>
+              </button>
+            ))}
           </div>
           <div className="catalog-card">
             <strong>{vehicleDisplayName(selectedCatalogVehicle)}</strong>
@@ -518,6 +631,19 @@ export function Dashboard({ data }: DashboardProps) {
               </div>
             </dl>
           </div>
+          <label className="selected-trim-select">
+            <span>Selected model trims across all years</span>
+            <select
+              onChange={(event) => setSelectedVehicleId(event.target.value)}
+              value={selectedCatalogVehicle.id}
+            >
+              {catalogTrimsForSelectedModel.map((vehicle) => (
+                <option key={vehicle.id} value={vehicle.id}>
+                  {vehicle.model_year} {vehicle.trim}
+                </option>
+              ))}
+            </select>
+          </label>
           <form className="dvla-form" onSubmit={importDvlaVehicle}>
             <input
               aria-label="UK registration"

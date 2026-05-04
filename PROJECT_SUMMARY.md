@@ -19,6 +19,7 @@ This repo demonstrates:
 - Trim-aware vehicle data modelling across make, model, model year, trim, body style, and UK market status.
 - Source provenance handling for conflicting values between DVLA import data and the local trim catalog.
 - Confidence-scored trim matching for imported registration-level data.
+- Production hardening including health checks, security headers, dependency audit, request timeouts, and an error boundary.
 - AI and machine learning through a trained cost-per-mile model.
 - Agentic AI patterns through a transparent multi-step recommendation agent.
 - RAG, or Retrieval Augmented Generation, through a local searchable knowledge corpus.
@@ -50,6 +51,7 @@ Users can:
 - Try a live UK registration import endpoint when a DVLA API key is configured.
 - See source-by-source value comparisons when imported DVLA data conflicts with the selected catalog trim.
 - Review likely trim matches with confidence scores and plain-English match reasons.
+- Browse the catalog across availability years instead of being limited to a single representative model year.
 
 ## Architecture
 
@@ -138,6 +140,19 @@ Official UK sources are useful but incomplete for rich trim selection. DVLA Vehi
 When a DVLA lookup is compared with a selected catalog trim, the project returns a provenance report. Overlapping fields such as make, model year, fuel type, and CO2 are compared directly. If values conflict, both values are retained and labelled by source. Fields that exist in only one source are marked as source-only. Fields that cannot be compared, such as DVLA trim data, are marked as not comparable.
 
 The import flow also ranks likely catalog trims. The matcher scores make, fuel type, model year, availability window, CO2 proximity, and optional model/trim hints, then returns confidence percentages and reasons. SQLite also includes `source_registry` and `vehicle_source_values` tables so the provenance story is visible in the data layer, not only in the UI.
+
+The catalog filters use availability windows. This avoids the false impression that a trim only exists in its representative `model_year`; a 2016-2026 availability span is searchable year by year.
+
+## Production Readiness Pass
+
+The project includes several deployment-oriented safeguards:
+
+- `/api/health` returns dataset, catalog, source, and RAG counts for smoke checks.
+- `next.config.ts` sets basic security headers and disables the powered-by header.
+- DVLA import validates registration-like input, times out upstream requests, and handles non-JSON upstream failures.
+- `src/app/error.tsx` provides a user-facing recovery boundary.
+- `npm run security:audit` is part of the local `check` script and CI workflow.
+- The CI workflow runs data build, Python tests, lint, TypeScript tests, audit, and a Next.js production build.
 
 ## AI And ML
 

@@ -20,6 +20,7 @@ The repo is designed to show full-stack data product work rather than a static d
 - **Automation / CI/CD:** GitHub Actions workflow runs data build, Python tests, TypeScript tests, linting, and Next build.
 - **SEO:** metadata, robots, sitemap, Open Graph metadata, and structured JSON-LD.
 - **Vercel-ready:** `vercel.json` and standard Next.js build flow.
+- **Production hardening:** health endpoint, security headers, dependency audit, error boundary, and typed API responses.
 
 ## Local Setup
 
@@ -74,6 +75,8 @@ The seed data is transparent and replaceable. It is suitable for engineering dem
 GET /api/vehicles
 GET /api/scenarios
 GET /api/catalog
+GET /api/catalog?year=2021&make=Volkswagen&q=golf
+GET /api/health
 GET /api/comparisons?scenario=mixed_household&annualMiles=12000&ownershipYears=5
 GET /api/comparisons?scenario=high_mileage_fleet&segment=hatchback
 GET /api/import/dvla?registration=AB12CDE
@@ -85,9 +88,24 @@ The comparison endpoint accepts query overrides such as `petrolGbpPerLitre`, `di
 
 The local catalog is trim-aware and UK-focused for 2016-2026 model years. The DVLA import route can enrich a registration lookup when `DVLA_API_KEY` is configured, but official DVLA vehicle enquiry data does not provide consumer trim packs, so trim matching still needs the local catalog or a commercial specification API.
 
+The catalog UI and `/api/catalog` use availability windows rather than a single representative model year. For example, filtering by `year=2021` returns trims available in 2021 even when their representative row uses a different model year.
+
 When live DVLA import is used with a selected catalog trim, the API returns a `provenance` report. Matching fields are marked as `match`, conflicting overlapping fields are marked as `conflict`, and one-source-only fields are marked as `dvla-only`, `catalog-only`, or `not-comparable`. The UI keeps both values visible with their source labels instead of silently overwriting one value with another.
 
 The same import response also returns likely local trim matches with confidence scores. Matching uses make, fuel type, model year, availability window, CO2 closeness, and optional model/trim hints.
+
+## Production Readiness
+
+Current hardening includes:
+
+- Security headers configured in `next.config.ts`.
+- `/api/health` for deployment smoke checks.
+- Error boundary for dashboard render failures.
+- Request validation, timeout handling, and non-JSON fallback for DVLA import.
+- Dependency audit through `npm run security:audit`.
+- CI coverage for Python data tests, TypeScript tests, lint, audit, and production build.
+
+The bundled CSV catalog is intentionally a seed dataset. A true production rollout should connect scheduled ingestion from official/commercial sources and store source values in a hosted database.
 
 ## Agentic AI And RAG
 

@@ -44,5 +44,8 @@ jobs:
       - name: Test TypeScript calculations
         run: npm run test
 
+      - name: Audit production dependencies
+        run: npm run security:audit
+
       - name: Build Next.js app
         run: npm run build

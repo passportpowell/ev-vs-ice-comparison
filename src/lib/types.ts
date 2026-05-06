@@ -134,7 +134,63 @@ export type ModelReport = {
   r2: number;
   mae_gbp_per_mile: number;
   feature_importance: Array<{ feature: string; importance: number }>;
+  permutation_importance?: Array<{ feature: string; mean: number; std: number }>;
   sample_predictions: Array<Record<string, string | number>>;
+};
+
+export type SequenceModelReport = {
+  target: string;
+  framework: string;
+  architecture: string;
+  parameters?: number;
+  feature_window_seconds?: number;
+  feature_count?: number;
+  training_rows: number;
+  test_rows: number;
+  r2: number;
+  mae_mps2: number;
+  epochs_trained: number;
+  loss_curve: number[];
+  sample_predictions: Array<{
+    predicted_acceleration_mps2: number;
+    actual_acceleration_mps2: number;
+  }>;
+  feature_engineering: Record<string, string>;
+  training_method?: string;
+  weights_path?: string;
+};
+
+export type CvSamplePrediction = {
+  url: string;
+  label: string;
+  label_index: number;
+  predicted: string;
+  confidence: number;
+  correct: boolean;
+  all_probs: Record<string, number>;
+};
+
+export type CvModelReport = {
+  framework: string;
+  task: string;
+  domain: string;
+  classes: string[];
+  input_size: [number, number, number];
+  architecture: string;
+  parameters: number;
+  trainable_parameters: number;
+  training_method: string;
+  augmentations: string[];
+  samples_per_class: number;
+  epochs: number;
+  accuracy: number;
+  macro_f1: number;
+  per_class_accuracy: Record<string, number>;
+  confusion_matrix: number[][];
+  loss_curve: number[];
+  val_accuracy_curve: number[];
+  sample_predictions: CvSamplePrediction[];
+  onnx_path: string;
 };
 
 export type RagDocument = {
@@ -145,11 +201,23 @@ export type RagDocument = {
   content: string;
   source: string;
   metadata: Record<string, string | number>;
+  tfidf_vector?: Record<string, number>;
+  semantic_neighbours?: Array<{ id: string; similarity: number }>;
 };
 
 export type RagHit = RagDocument & {
   score: number;
   matched_terms: string[];
+  related?: Array<{ id: string; title: string; similarity: number }>;
+};
+
+export type RagIndex = {
+  vocab: Record<string, { i: number; idf: number }>;
+  params: {
+    n_components?: number;
+    vocab_size?: number;
+    ngram_range?: [number, number];
+  };
 };
 
 export type SourceRegistryEntry = {
@@ -201,8 +269,11 @@ export type PortfolioDataset = {
   powertrain_summary: PowertrainSummary[];
   signal_processing: SignalFeature[];
   rag_corpus: RagDocument[];
+  rag_index?: RagIndex;
   source_registry: SourceRegistryEntry[];
   model: ModelReport;
+  sequence_model?: SequenceModelReport;
+  cv_model?: CvModelReport;
   api_examples: string[];
 };
 

@@ -1,0 +1,69 @@
+name: Refresh data
+
+on:
+  schedule:
+    # Daily at 03:30 UTC, after Octopus and DESNZ refresh windows.
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install -r requirements.txt
+
+      - name: Install web dependencies
+        run: npm ci
+
+      - name: Rebuild data artifacts
+        run: npm run data:build
+
+      - name: Refresh live API snapshots
+        run: node scripts/refresh-live-snapshots.mjs
+
+      - name: Test pipeline still passes
+        run: npm run data:test
+
+      - name: Test web calculations
+        run: npm run test
+
+      - name: Stage refreshed artifacts
+        id: stage
+        run: |
+          git add data/processed/ src/data/ public/data/ || true
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit refreshed artifacts
+        if: steps.stage.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          stamp=$(date -u +"%Y-%m-%d %H:%M UTC")
+          git commit -m "chore(data): nightly refresh ${stamp}"
+          git push

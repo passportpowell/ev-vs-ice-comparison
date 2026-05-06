@@ -1,0 +1,5150 @@
+{
+  "$comment": "UK consumer car catalog by make → models with year ranges. Covers every major brand sold in the UK 2015-2026 at the model level (not trim level). Compiled from manufacturer UK websites, AutoTrader/Whatcar listings, and SMMT registration stats. Maintainable: when a new model launches, append; when a model is discontinued, set 'to' to the final year.",
+  "version": "2026.05.05",
+  "source_note": "Curated UK consumer-car catalog. Live data sources (DVLA, CAP HPI, SMMT) are either per-registration only or behind paid licences — this file is the project's canonical UK lineup until a free public catalog API exists.",
+  "makes": [
+    {
+      "name": "Alfa Romeo",
+      "models": [
+        {
+          "model": "Giulia",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              50,
+              58
+            ]
+          }
+        },
+        {
+          "model": "Stelvio",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              28,
+              38
+            ],
+            "diesel_mpg_uk": [
+              42,
+              50
+            ]
+          }
+        },
+        {
+          "model": "Tonale",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Junior",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "battery_kwh": [
+              54,
+              54
+            ],
+            "kwh_per_100km": [
+              15.5,
+              16
+            ],
+            "petrol_mpg_uk": [
+              44,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Giulietta",
+          "from": 2010,
+          "to": 2020,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "MiTo",
+          "from": 2008,
+          "to": 2018,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "4C",
+          "from": 2013,
+          "to": 2020,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Alpine",
+      "models": [
+        {
+          "model": "A110",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ]
+          }
+        },
+        {
+          "model": "A290",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              52,
+              52
+            ],
+            "kwh_per_100km": [
+              14.6,
+              15.5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Aston Martin",
+      "models": [
+        {
+          "model": "DB11",
+          "from": 2016,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DB12",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DBS",
+          "from": 2018,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DBX",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              18,
+              24
+            ]
+          }
+        },
+        {
+          "model": "Vantage",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Valhalla",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Audi",
+      "models": [
+        {
+          "model": "A1",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              56
+            ]
+          }
+        },
+        {
+          "model": "A3",
+          "from": 2003,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "A4",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "A5",
+          "from": 2007,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "A6",
+          "from": 2011,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              48,
+              58
+            ]
+          }
+        },
+        {
+          "model": "A7",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "A8",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Q2",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Q3",
+          "from": 2011,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ],
+            "diesel_mpg_uk": [
+              48,
+              56
+            ]
+          }
+        },
+        {
+          "model": "Q4 e-tron",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              55,
+              82
+            ],
+            "kwh_per_100km": [
+              16.5,
+              19
+            ]
+          }
+        },
+        {
+          "model": "Q5",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "Q6 e-tron",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              83,
+              100
+            ],
+            "kwh_per_100km": [
+              16.7,
+              18.5
+            ]
+          }
+        },
+        {
+          "model": "Q7",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              25,
+              32
+            ],
+            "diesel_mpg_uk": [
+              38,
+              45
+            ]
+          }
+        },
+        {
+          "model": "Q8",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Q8 e-tron",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              89,
+              106
+            ],
+            "kwh_per_100km": [
+              21.5,
+              23.5
+            ]
+          }
+        },
+        {
+          "model": "TT",
+          "from": 2007,
+          "to": 2023,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "R8",
+          "from": 2007,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e-tron",
+          "from": 2019,
+          "to": 2023,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              71,
+              86
+            ],
+            "kwh_per_100km": [
+              22,
+              26
+            ]
+          }
+        },
+        {
+          "model": "e-tron GT",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              83.7,
+              97
+            ],
+            "kwh_per_100km": [
+              18.7,
+              21.4
+            ]
+          }
+        },
+        {
+          "model": "RS3",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "RS4",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "RS5",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "RS6",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "RS7",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Bentley",
+      "models": [
+        {
+          "model": "Bentayga",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              18,
+              24
+            ]
+          }
+        },
+        {
+          "model": "Continental GT",
+          "from": 2003,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Flying Spur",
+          "from": 2005,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "BMW",
+      "models": [
+        {
+          "model": "1 Series",
+          "from": 2004,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              55
+            ],
+            "diesel_mpg_uk": [
+              50,
+              65
+            ]
+          }
+        },
+        {
+          "model": "2 Series",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              48,
+              62
+            ]
+          }
+        },
+        {
+          "model": "2 Series Active Tourer",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "2 Series Gran Coupe",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "3 Series",
+          "from": 2005,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              36,
+              50
+            ],
+            "diesel_mpg_uk": [
+              46,
+              65
+            ]
+          }
+        },
+        {
+          "model": "4 Series",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              48
+            ],
+            "diesel_mpg_uk": [
+              45,
+              60
+            ]
+          }
+        },
+        {
+          "model": "5 Series",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              48
+            ],
+            "diesel_mpg_uk": [
+              44,
+              58
+            ]
+          }
+        },
+        {
+          "model": "6 Series",
+          "from": 2011,
+          "to": 2018,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "7 Series",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "8 Series",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "X1",
+          "from": 2009,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              50
+            ],
+            "diesel_mpg_uk": [
+              48,
+              62
+            ]
+          }
+        },
+        {
+          "model": "X2",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "X3",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              45
+            ],
+            "diesel_mpg_uk": [
+              40,
+              55
+            ]
+          }
+        },
+        {
+          "model": "X4",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "X5",
+          "from": 2007,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              25,
+              35
+            ],
+            "diesel_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "X6",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "X7",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Z4",
+          "from": 2009,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "i3",
+          "from": 2013,
+          "to": 2022,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              22.6,
+              42.2
+            ],
+            "kwh_per_100km": [
+              13.6,
+              14.9
+            ]
+          }
+        },
+        {
+          "model": "i4",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              70,
+              84
+            ],
+            "kwh_per_100km": [
+              15.5,
+              18.5
+            ]
+          }
+        },
+        {
+          "model": "i5",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              81.2,
+              84
+            ],
+            "kwh_per_100km": [
+              16.2,
+              19
+            ]
+          }
+        },
+        {
+          "model": "i7",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              101.7,
+              105.7
+            ],
+            "kwh_per_100km": [
+              18.4,
+              21
+            ]
+          }
+        },
+        {
+          "model": "iX",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              76.6,
+              111.5
+            ],
+            "kwh_per_100km": [
+              18.4,
+              21.5
+            ]
+          }
+        },
+        {
+          "model": "iX1",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              64.7,
+              64.7
+            ],
+            "kwh_per_100km": [
+              16.7,
+              17
+            ]
+          }
+        },
+        {
+          "model": "iX2",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              64.7,
+              64.7
+            ],
+            "kwh_per_100km": [
+              16.4,
+              17.5
+            ]
+          }
+        },
+        {
+          "model": "iX3",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              76.6,
+              76.6
+            ],
+            "kwh_per_100km": [
+              18.5,
+              18.8
+            ]
+          }
+        },
+        {
+          "model": "M2",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "M3",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "M4",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "M5",
+          "from": 2011,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "M8",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "BYD",
+      "models": [
+        {
+          "model": "Atto 3",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              60.5,
+              60.5
+            ],
+            "kwh_per_100km": [
+              16.4,
+              16.6
+            ]
+          }
+        },
+        {
+          "model": "Atto 2",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              45,
+              45
+            ],
+            "kwh_per_100km": [
+              15,
+              15.5
+            ]
+          }
+        },
+        {
+          "model": "Dolphin",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              44.9,
+              60.4
+            ],
+            "kwh_per_100km": [
+              14.5,
+              15.9
+            ]
+          }
+        },
+        {
+          "model": "Dolphin Surf",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              30,
+              45
+            ],
+            "kwh_per_100km": [
+              13.5,
+              14.5
+            ]
+          }
+        },
+        {
+          "model": "Seal",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              61.4,
+              82.5
+            ],
+            "kwh_per_100km": [
+              14.6,
+              16.6
+            ]
+          }
+        },
+        {
+          "model": "Seal U",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              71.8,
+              87
+            ],
+            "kwh_per_100km": [
+              18.4,
+              20
+            ]
+          }
+        },
+        {
+          "model": "Seal U DM-i",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              18.3,
+              26.6
+            ],
+            "kwh_per_100km": [
+              22,
+              24
+            ],
+            "petrol_mpg_uk": [
+              42,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Sealion 7",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              82.5,
+              91.3
+            ],
+            "kwh_per_100km": [
+              18,
+              19.5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Citroën",
+      "models": [
+        {
+          "model": "Ami",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              5.5,
+              5.5
+            ],
+            "kwh_per_100km": [
+              9,
+              10
+            ]
+          }
+        },
+        {
+          "model": "C1",
+          "from": 2014,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "C3",
+          "from": 2002,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "C3 Aircross",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "C4",
+          "from": 2004,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "C4 X",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e-C4",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              54
+            ],
+            "kwh_per_100km": [
+              16,
+              16.8
+            ]
+          }
+        },
+        {
+          "model": "e-C4 X",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              54
+            ],
+            "kwh_per_100km": [
+              16,
+              16.5
+            ]
+          }
+        },
+        {
+          "model": "C5 Aircross",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "C5 X",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Berlingo",
+          "from": 1996,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e-Berlingo",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              50
+            ],
+            "kwh_per_100km": [
+              19.5,
+              20.5
+            ]
+          }
+        },
+        {
+          "model": "Spacetourer",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Cupra",
+      "models": [
+        {
+          "model": "Ateca",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Born",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              58,
+              77
+            ],
+            "kwh_per_100km": [
+              15.4,
+              16.5
+            ]
+          }
+        },
+        {
+          "model": "Formentor",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "Leon",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              52
+            ]
+          }
+        },
+        {
+          "model": "Tavascan",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              77,
+              77
+            ],
+            "kwh_per_100km": [
+              17.3,
+              18
+            ]
+          }
+        },
+        {
+          "model": "Terramar",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Dacia",
+      "models": [
+        {
+          "model": "Sandero",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              56
+            ]
+          }
+        },
+        {
+          "model": "Sandero Stepway",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Duster",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              50
+            ]
+          }
+        },
+        {
+          "model": "Jogger",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Spring",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              26.8,
+              26.8
+            ],
+            "kwh_per_100km": [
+              13,
+              13.5
+            ]
+          }
+        },
+        {
+          "model": "Bigster",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "DS Automobiles",
+      "models": [
+        {
+          "model": "DS 3",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "battery_kwh": [
+              50,
+              54
+            ],
+            "kwh_per_100km": [
+              15.5,
+              16
+            ]
+          }
+        },
+        {
+          "model": "DS 3 Crossback",
+          "from": 2019,
+          "to": 2023,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DS 4",
+          "from": 2015,
+          "to": 2018,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DS 4 (2nd gen)",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DS 7",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DS 9",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "DS N°8",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "EV"
+        }
+      ]
+    },
+    {
+      "name": "Ferrari",
+      "models": [
+        {
+          "model": "296 GTB",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Roma",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "SF90 Stradale",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Purosangue",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "12Cilindri",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Fiat",
+      "models": [
+        {
+          "model": "500",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "500e",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              24,
+              42
+            ],
+            "kwh_per_100km": [
+              13,
+              14.5
+            ]
+          }
+        },
+        {
+          "model": "500X",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "600",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "600e",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              54,
+              54
+            ],
+            "kwh_per_100km": [
+              15.5,
+              16.5
+            ]
+          }
+        },
+        {
+          "model": "Panda",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Tipo",
+          "from": 2016,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Doblò",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Topolino",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              5.4,
+              5.4
+            ],
+            "kwh_per_100km": [
+              9,
+              10
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ford",
+      "models": [
+        {
+          "model": "Fiesta",
+          "from": 2008,
+          "to": 2023,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Focus",
+          "from": 2010,
+          "to": 2025,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Puma",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              45,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Puma Gen-E",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              43,
+              43
+            ],
+            "kwh_per_100km": [
+              13.3,
+              14
+            ]
+          }
+        },
+        {
+          "model": "Mondeo",
+          "from": 2007,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Kuga",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "EcoSport",
+          "from": 2014,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Galaxy",
+          "from": 2006,
+          "to": 2023,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "S-MAX",
+          "from": 2006,
+          "to": 2023,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Tourneo Connect",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Tourneo Courier",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Mustang",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Mustang Mach-E",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              70,
+              91
+            ],
+            "kwh_per_100km": [
+              17.5,
+              21.5
+            ]
+          }
+        },
+        {
+          "model": "Explorer",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              52,
+              77
+            ],
+            "kwh_per_100km": [
+              16,
+              17.6
+            ]
+          }
+        },
+        {
+          "model": "Capri",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              52,
+              77
+            ],
+            "kwh_per_100km": [
+              16,
+              17.4
+            ]
+          }
+        },
+        {
+          "model": "Ranger",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Genesis",
+      "models": [
+        {
+          "model": "G70",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "G80",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Electrified G80",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              87.2,
+              87.2
+            ],
+            "kwh_per_100km": [
+              16.8,
+              17.5
+            ]
+          }
+        },
+        {
+          "model": "GV60",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              77.4,
+              77.4
+            ],
+            "kwh_per_100km": [
+              17.5,
+              18.5
+            ]
+          }
+        },
+        {
+          "model": "GV70",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Electrified GV70",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              77.4,
+              77.4
+            ],
+            "kwh_per_100km": [
+              19.4,
+              20
+            ]
+          }
+        },
+        {
+          "model": "GV80",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Honda",
+      "models": [
+        {
+          "model": "Jazz",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Civic",
+          "from": 2006,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "HR-V",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              58
+            ]
+          }
+        },
+        {
+          "model": "CR-V",
+          "from": 2007,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "ZR-V",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e:Ny1",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              68.8,
+              68.8
+            ],
+            "kwh_per_100km": [
+              18,
+              19
+            ]
+          }
+        },
+        {
+          "model": "e",
+          "from": 2020,
+          "to": 2024,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              35.5,
+              35.5
+            ],
+            "kwh_per_100km": [
+              17.8,
+              18
+            ]
+          }
+        },
+        {
+          "model": "NSX",
+          "from": 2016,
+          "to": 2022,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Hyundai",
+      "models": [
+        {
+          "model": "i10",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              56
+            ]
+          }
+        },
+        {
+          "model": "i20",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "i30",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Bayon",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Kona",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Kona Electric",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              39.2,
+              65.4
+            ],
+            "kwh_per_100km": [
+              14.7,
+              16.6
+            ]
+          }
+        },
+        {
+          "model": "Tucson",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Santa Fe",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Ioniq",
+          "from": 2016,
+          "to": 2022,
+          "powertrain": "Hybrid"
+        },
+        {
+          "model": "Ioniq 5",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              58,
+              84
+            ],
+            "kwh_per_100km": [
+              16.7,
+              19.4
+            ]
+          }
+        },
+        {
+          "model": "Ioniq 5 N",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              84,
+              84
+            ],
+            "kwh_per_100km": [
+              20.6,
+              22.4
+            ]
+          }
+        },
+        {
+          "model": "Ioniq 6",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              53,
+              77.4
+            ],
+            "kwh_per_100km": [
+              13.9,
+              16.9
+            ]
+          }
+        },
+        {
+          "model": "Inster",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              42,
+              49
+            ],
+            "kwh_per_100km": [
+              14.3,
+              15.3
+            ]
+          }
+        },
+        {
+          "model": "Nexo",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "EV"
+        }
+      ]
+    },
+    {
+      "name": "Ineos",
+      "models": [
+        {
+          "model": "Grenadier",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              18,
+              25
+            ],
+            "diesel_mpg_uk": [
+              25,
+              32
+            ]
+          }
+        },
+        {
+          "model": "Grenadier Quartermaster",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Jaguar",
+      "models": [
+        {
+          "model": "XE",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "XF",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "XJ",
+          "from": 2010,
+          "to": 2019,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "F-Pace",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              25,
+              35
+            ],
+            "diesel_mpg_uk": [
+              35,
+              45
+            ]
+          }
+        },
+        {
+          "model": "E-Pace",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "EV"
+        },
+        {
+          "model": "I-Pace",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              90,
+              90
+            ],
+            "kwh_per_100km": [
+              22,
+              23.5
+            ]
+          }
+        },
+        {
+          "model": "F-Type",
+          "from": 2013,
+          "to": 2024,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Jeep",
+      "models": [
+        {
+          "model": "Avenger",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "battery_kwh": [
+              54,
+              54
+            ],
+            "kwh_per_100km": [
+              15.5,
+              16.5
+            ],
+            "petrol_mpg_uk": [
+              44,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Renegade",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Compass",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "Wrangler",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              30
+            ]
+          }
+        },
+        {
+          "model": "Grand Cherokee",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Kia",
+      "models": [
+        {
+          "model": "Picanto",
+          "from": 2011,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Rio",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Stonic",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Ceed",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "ProCeed",
+          "from": 2019,
+          "to": 2025,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "XCeed",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Niro",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Niro EV",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              64,
+              64
+            ],
+            "kwh_per_100km": [
+              15.9,
+              16.5
+            ]
+          }
+        },
+        {
+          "model": "Sportage",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              48,
+              58
+            ]
+          }
+        },
+        {
+          "model": "Sorento",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "EV3",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              58.3,
+              81.4
+            ],
+            "kwh_per_100km": [
+              14.9,
+              16.7
+            ]
+          }
+        },
+        {
+          "model": "EV6",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              58,
+              84
+            ],
+            "kwh_per_100km": [
+              16.5,
+              19.7
+            ]
+          }
+        },
+        {
+          "model": "EV9",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              76.1,
+              99.8
+            ],
+            "kwh_per_100km": [
+              22.8,
+              25.4
+            ]
+          }
+        },
+        {
+          "model": "Soul EV",
+          "from": 2014,
+          "to": 2024,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              27,
+              64
+            ],
+            "kwh_per_100km": [
+              15.7,
+              17
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lamborghini",
+      "models": [
+        {
+          "model": "Huracán",
+          "from": 2014,
+          "to": 2025,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Urus",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Revuelto",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Temerario",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Land Rover",
+      "models": [
+        {
+          "model": "Defender",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              30
+            ],
+            "diesel_mpg_uk": [
+              30,
+              38
+            ]
+          }
+        },
+        {
+          "model": "Discovery",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Discovery Sport",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "Range Rover",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              28
+            ],
+            "diesel_mpg_uk": [
+              30,
+              38
+            ]
+          }
+        },
+        {
+          "model": "Range Rover Sport",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              30
+            ],
+            "diesel_mpg_uk": [
+              32,
+              40
+            ]
+          }
+        },
+        {
+          "model": "Range Rover Velar",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Range Rover Evoque",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lexus",
+      "models": [
+        {
+          "model": "CT",
+          "from": 2011,
+          "to": 2020,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "IS",
+          "from": 2013,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "ES",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "LS",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "UX",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "NX",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "RX",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ]
+          }
+        },
+        {
+          "model": "LBX",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "LC",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "RC",
+          "from": 2014,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "RZ",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              71.4,
+              71.4
+            ],
+            "kwh_per_100km": [
+              17,
+              19
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lotus",
+      "models": [
+        {
+          "model": "Elise",
+          "from": 2010,
+          "to": 2021,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Exige",
+          "from": 2010,
+          "to": 2021,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Evora",
+          "from": 2010,
+          "to": 2021,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Emira",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              30
+            ]
+          }
+        },
+        {
+          "model": "Eletre",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              112,
+              112
+            ],
+            "kwh_per_100km": [
+              21.5,
+              24
+            ]
+          }
+        },
+        {
+          "model": "Emeya",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              102,
+              102
+            ],
+            "kwh_per_100km": [
+              19.5,
+              22
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Maserati",
+      "models": [
+        {
+          "model": "Ghibli",
+          "from": 2014,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Levante",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Quattroporte",
+          "from": 2014,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Grecale",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              25,
+              32
+            ]
+          }
+        },
+        {
+          "model": "MC20",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GranTurismo",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              28
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mazda",
+      "models": [
+        {
+          "model": "2",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "3",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              54
+            ]
+          }
+        },
+        {
+          "model": "6",
+          "from": 2013,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "MX-5",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "MX-30",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              35.5,
+              35.5
+            ],
+            "kwh_per_100km": [
+              18.5,
+              19.5
+            ]
+          }
+        },
+        {
+          "model": "CX-3",
+          "from": 2015,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "CX-30",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              50
+            ]
+          }
+        },
+        {
+          "model": "CX-5",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ],
+            "diesel_mpg_uk": [
+              48,
+              58
+            ]
+          }
+        },
+        {
+          "model": "CX-60",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "CX-80",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "McLaren",
+      "models": [
+        {
+          "model": "GT",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "750S",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Artura",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Mercedes-Benz",
+      "models": [
+        {
+          "model": "A-Class",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "B-Class",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "C-Class",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              36,
+              48
+            ],
+            "diesel_mpg_uk": [
+              50,
+              65
+            ]
+          }
+        },
+        {
+          "model": "CLA",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "CLS",
+          "from": 2011,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "E-Class",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              45
+            ],
+            "diesel_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "S-Class",
+          "from": 2007,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GLA",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "GLB",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GLC",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              45
+            ],
+            "diesel_mpg_uk": [
+              42,
+              55
+            ]
+          }
+        },
+        {
+          "model": "GLE",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GLS",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "G-Class",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "EQA",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              70.5,
+              70.5
+            ],
+            "kwh_per_100km": [
+              16.7,
+              18
+            ]
+          }
+        },
+        {
+          "model": "EQB",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              70.5,
+              70.5
+            ],
+            "kwh_per_100km": [
+              18.4,
+              19.7
+            ]
+          }
+        },
+        {
+          "model": "EQC",
+          "from": 2019,
+          "to": 2024,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              80,
+              80
+            ],
+            "kwh_per_100km": [
+              22,
+              23
+            ]
+          }
+        },
+        {
+          "model": "EQE",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              89,
+              89
+            ],
+            "kwh_per_100km": [
+              16,
+              18.7
+            ]
+          }
+        },
+        {
+          "model": "EQS",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              108.4,
+              118
+            ],
+            "kwh_per_100km": [
+              16.4,
+              19.4
+            ]
+          }
+        },
+        {
+          "model": "EQE SUV",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              89,
+              90.6
+            ],
+            "kwh_per_100km": [
+              18.5,
+              20.5
+            ]
+          }
+        },
+        {
+          "model": "EQS SUV",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              108.4,
+              118
+            ],
+            "kwh_per_100km": [
+              21,
+              23
+            ]
+          }
+        },
+        {
+          "model": "AMG GT",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "V-Class",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Citan",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "MG",
+      "models": [
+        {
+          "model": "MG3",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              64
+            ]
+          }
+        },
+        {
+          "model": "MG4",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              51,
+              77
+            ],
+            "kwh_per_100km": [
+              15.4,
+              16.6
+            ]
+          }
+        },
+        {
+          "model": "MG5",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "battery_kwh": [
+              50,
+              61
+            ],
+            "kwh_per_100km": [
+              16.6,
+              17.9
+            ]
+          }
+        },
+        {
+          "model": "MG ZS",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              50
+            ]
+          }
+        },
+        {
+          "model": "MG ZS EV",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              49,
+              72.6
+            ],
+            "kwh_per_100km": [
+              16.5,
+              18.7
+            ]
+          }
+        },
+        {
+          "model": "MG HS",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "MG GS",
+          "from": 2016,
+          "to": 2019,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Cyberster",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              64,
+              77
+            ],
+            "kwh_per_100km": [
+              18.5,
+              20
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINI",
+      "models": [
+        {
+          "model": "Cooper",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Cooper SE",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              29.2,
+              40.7
+            ],
+            "kwh_per_100km": [
+              13.6,
+              15.5
+            ]
+          }
+        },
+        {
+          "model": "Aceman",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              42.5,
+              54.2
+            ],
+            "kwh_per_100km": [
+              14,
+              16
+            ]
+          }
+        },
+        {
+          "model": "Clubman",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Countryman",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "Convertible",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "John Cooper Works",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Mitsubishi",
+      "models": [
+        {
+          "model": "ASX",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "Eclipse Cross",
+          "from": 2018,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Outlander",
+          "from": 2013,
+          "to": 2024,
+          "powertrain": "Mixed",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ]
+          }
+        },
+        {
+          "model": "L200",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Colt",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Nissan",
+      "models": [
+        {
+          "model": "Micra",
+          "from": 2010,
+          "to": 2024,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Note",
+          "from": 2013,
+          "to": 2017,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Juke",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              56
+            ]
+          }
+        },
+        {
+          "model": "Qashqai",
+          "from": 2007,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              55
+            ]
+          }
+        },
+        {
+          "model": "X-Trail",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Leaf",
+          "from": 2011,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              40,
+              62
+            ],
+            "kwh_per_100km": [
+              16,
+              17.6
+            ]
+          }
+        },
+        {
+          "model": "Ariya",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              63,
+              87
+            ],
+            "kwh_per_100km": [
+              17.5,
+              21.4
+            ]
+          }
+        },
+        {
+          "model": "Townstar",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Navara",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GT-R",
+          "from": 2007,
+          "to": 2024,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Peugeot",
+      "models": [
+        {
+          "model": "108",
+          "from": 2014,
+          "to": 2021,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "208",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "e-208",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              51
+            ],
+            "kwh_per_100km": [
+              15.4,
+              16.4
+            ]
+          }
+        },
+        {
+          "model": "308",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "e-308",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              54,
+              54
+            ],
+            "kwh_per_100km": [
+              15.4,
+              16
+            ]
+          }
+        },
+        {
+          "model": "508",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "2008",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e-2008",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              54
+            ],
+            "kwh_per_100km": [
+              16.4,
+              17.4
+            ]
+          }
+        },
+        {
+          "model": "3008",
+          "from": 2009,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              48,
+              58
+            ]
+          }
+        },
+        {
+          "model": "e-3008",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              73,
+              73
+            ],
+            "kwh_per_100km": [
+              17,
+              17.6
+            ]
+          }
+        },
+        {
+          "model": "5008",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e-5008",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              73,
+              73
+            ],
+            "kwh_per_100km": [
+              18,
+              19
+            ]
+          }
+        },
+        {
+          "model": "Rifter",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e-Rifter",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              50
+            ],
+            "kwh_per_100km": [
+              19,
+              20
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Polestar",
+      "models": [
+        {
+          "model": "Polestar 2",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              69,
+              82
+            ],
+            "kwh_per_100km": [
+              16,
+              18.6
+            ]
+          }
+        },
+        {
+          "model": "Polestar 3",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              107,
+              111
+            ],
+            "kwh_per_100km": [
+              19,
+              21
+            ]
+          }
+        },
+        {
+          "model": "Polestar 4",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              94,
+              100
+            ],
+            "kwh_per_100km": [
+              17,
+              19.5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Porsche",
+      "models": [
+        {
+          "model": "718 Boxster",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "718 Cayman",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "911",
+          "from": 2012,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              30
+            ]
+          }
+        },
+        {
+          "model": "Panamera",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Macan",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              28,
+              36
+            ]
+          }
+        },
+        {
+          "model": "Macan Electric",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              95,
+              100
+            ],
+            "kwh_per_100km": [
+              18.6,
+              21.5
+            ]
+          }
+        },
+        {
+          "model": "Cayenne",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              22,
+              30
+            ]
+          }
+        },
+        {
+          "model": "Taycan",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              79,
+              105
+            ],
+            "kwh_per_100km": [
+              17.5,
+              22
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Renault",
+      "models": [
+        {
+          "model": "Twingo",
+          "from": 2014,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Clio",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Captur",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Megane",
+          "from": 2008,
+          "to": 2024,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              54
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Megane E-Tech",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              40,
+              60
+            ],
+            "kwh_per_100km": [
+              14.9,
+              16.1
+            ]
+          }
+        },
+        {
+          "model": "Scenic",
+          "from": 2009,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Scenic E-Tech",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              60,
+              87
+            ],
+            "kwh_per_100km": [
+              14.9,
+              17.3
+            ]
+          }
+        },
+        {
+          "model": "Austral",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Espace",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Arkana",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Kadjar",
+          "from": 2015,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Koleos",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Zoe",
+          "from": 2013,
+          "to": 2024,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              22,
+              52
+            ],
+            "kwh_per_100km": [
+              13,
+              17.2
+            ]
+          }
+        },
+        {
+          "model": "5 E-Tech",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              40,
+              52
+            ],
+            "kwh_per_100km": [
+              13.4,
+              14.9
+            ]
+          }
+        },
+        {
+          "model": "4 E-Tech",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              40,
+              52
+            ],
+            "kwh_per_100km": [
+              14,
+              15
+            ]
+          }
+        },
+        {
+          "model": "Kangoo",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Rolls-Royce",
+      "models": [
+        {
+          "model": "Phantom",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Ghost",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Cullinan",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Spectre",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              102,
+              102
+            ],
+            "kwh_per_100km": [
+              21,
+              23
+            ]
+          }
+        },
+        {
+          "model": "Wraith",
+          "from": 2014,
+          "to": 2023,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Dawn",
+          "from": 2016,
+          "to": 2023,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "SEAT",
+      "models": [
+        {
+          "model": "Mii",
+          "from": 2012,
+          "to": 2021,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Ibiza",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Leon",
+          "from": 2009,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              54
+            ]
+          }
+        },
+        {
+          "model": "Arona",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Ateca",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ]
+          }
+        },
+        {
+          "model": "Tarraco",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Skoda",
+      "models": [
+        {
+          "model": "Citigo",
+          "from": 2012,
+          "to": 2020,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Fabia",
+          "from": 2007,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Scala",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Octavia",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Superb",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Kamiq",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Karoq",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              40,
+              50
+            ],
+            "diesel_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Kodiaq",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              36,
+              46
+            ],
+            "diesel_mpg_uk": [
+              44,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Enyaq",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              55,
+              82
+            ],
+            "kwh_per_100km": [
+              15.7,
+              17.6
+            ]
+          }
+        },
+        {
+          "model": "Elroq",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              55,
+              82
+            ],
+            "kwh_per_100km": [
+              15.6,
+              17
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Smart",
+      "models": [
+        {
+          "model": "ForTwo",
+          "from": 2008,
+          "to": 2024,
+          "powertrain": "EV",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              65
+            ]
+          }
+        },
+        {
+          "model": "ForFour",
+          "from": 2014,
+          "to": 2021,
+          "powertrain": "EV"
+        },
+        {
+          "model": "EQ ForTwo",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "EV"
+        },
+        {
+          "model": "#1",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              49,
+              66
+            ],
+            "kwh_per_100km": [
+              15.4,
+              16.8
+            ]
+          }
+        },
+        {
+          "model": "#3",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              49,
+              66
+            ],
+            "kwh_per_100km": [
+              15.6,
+              17
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SsangYong",
+      "models": [
+        {
+          "model": "Tivoli",
+          "from": 2015,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Korando",
+          "from": 2011,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Rexton",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Musso",
+          "from": 2018,
+          "to": 2024,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Subaru",
+      "models": [
+        {
+          "model": "Impreza",
+          "from": 2008,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Forester",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ]
+          }
+        },
+        {
+          "model": "Outback",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              30,
+              40
+            ]
+          }
+        },
+        {
+          "model": "XV",
+          "from": 2012,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Crosstrek",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Solterra",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              71.4,
+              71.4
+            ],
+            "kwh_per_100km": [
+              17.5,
+              18.4
+            ]
+          }
+        },
+        {
+          "model": "BRZ",
+          "from": 2012,
+          "to": 2024,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Suzuki",
+      "models": [
+        {
+          "model": "Ignis",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Swift",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Vitara",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              54
+            ]
+          }
+        },
+        {
+          "model": "S-Cross",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Jimny",
+          "from": 2018,
+          "to": 2024,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              40
+            ]
+          }
+        },
+        {
+          "model": "Across",
+          "from": 2020,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Swace",
+          "from": 2020,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "e Vitara",
+          "from": 2025,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              49,
+              61
+            ],
+            "kwh_per_100km": [
+              15,
+              16.5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tesla",
+      "models": [
+        {
+          "model": "Model S",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              100,
+              100
+            ],
+            "kwh_per_100km": [
+              16.4,
+              19.4
+            ]
+          }
+        },
+        {
+          "model": "Model 3",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              57,
+              79
+            ],
+            "kwh_per_100km": [
+              13.2,
+              16.6
+            ]
+          }
+        },
+        {
+          "model": "Model X",
+          "from": 2016,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              100,
+              100
+            ],
+            "kwh_per_100km": [
+              18.7,
+              21
+            ]
+          }
+        },
+        {
+          "model": "Model Y",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              60,
+              79
+            ],
+            "kwh_per_100km": [
+              14.4,
+              17.3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Toyota",
+      "models": [
+        {
+          "model": "Aygo",
+          "from": 2014,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Aygo X",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              56,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Yaris",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              70
+            ]
+          }
+        },
+        {
+          "model": "Yaris Cross",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Corolla",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Corolla Cross",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "Hybrid"
+        },
+        {
+          "model": "C-HR",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              50,
+              60
+            ]
+          }
+        },
+        {
+          "model": "RAV4",
+          "from": 2014,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "Highlander",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              45
+            ]
+          }
+        },
+        {
+          "model": "Camry",
+          "from": 2019,
+          "to": 2024,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              56
+            ]
+          }
+        },
+        {
+          "model": "Prius",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "Hybrid",
+          "specs": {
+            "petrol_mpg_uk": [
+              55,
+              70
+            ]
+          }
+        },
+        {
+          "model": "Mirai",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "Hybrid"
+        },
+        {
+          "model": "Land Cruiser",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Hilux",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GR Yaris",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GR86",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "GR Supra",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "bZ4X",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              71.4,
+              71.4
+            ],
+            "kwh_per_100km": [
+              16.5,
+              18.2
+            ]
+          }
+        },
+        {
+          "model": "Proace City",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Proace Verso",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Vauxhall",
+      "models": [
+        {
+          "model": "Adam",
+          "from": 2013,
+          "to": 2019,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Viva",
+          "from": 2015,
+          "to": 2019,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Corsa",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Corsa Electric",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              51
+            ],
+            "kwh_per_100km": [
+              15.3,
+              16
+            ]
+          }
+        },
+        {
+          "model": "Astra",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              44,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              65
+            ]
+          }
+        },
+        {
+          "model": "Astra Electric",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              54,
+              54
+            ],
+            "kwh_per_100km": [
+              15.5,
+              16
+            ]
+          }
+        },
+        {
+          "model": "Insignia",
+          "from": 2009,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Crossland",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Mokka",
+          "from": 2013,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "Mokka Electric",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              54
+            ],
+            "kwh_per_100km": [
+              15.6,
+              16.4
+            ]
+          }
+        },
+        {
+          "model": "Grandland",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              50
+            ],
+            "diesel_mpg_uk": [
+              48,
+              58
+            ]
+          }
+        },
+        {
+          "model": "Grandland Electric",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              73,
+              73
+            ],
+            "kwh_per_100km": [
+              16.6,
+              17.6
+            ]
+          }
+        },
+        {
+          "model": "Frontera",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Frontera Electric",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              44,
+              54
+            ],
+            "kwh_per_100km": [
+              15.5,
+              17.5
+            ]
+          }
+        },
+        {
+          "model": "Combo Life",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Combo-e Life",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              50,
+              50
+            ],
+            "kwh_per_100km": [
+              19,
+              20
+            ]
+          }
+        },
+        {
+          "model": "Vivaro Life",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        }
+      ]
+    },
+    {
+      "name": "Volkswagen",
+      "models": [
+        {
+          "model": "Up!",
+          "from": 2012,
+          "to": 2023,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Polo",
+          "from": 2009,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              48,
+              60
+            ]
+          }
+        },
+        {
+          "model": "Golf",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              42,
+              55
+            ],
+            "diesel_mpg_uk": [
+              55,
+              70
+            ]
+          }
+        },
+        {
+          "model": "Passat",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Arteon",
+          "from": 2017,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "T-Cross",
+          "from": 2019,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "T-Roc",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Tiguan",
+          "from": 2008,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              36,
+              48
+            ],
+            "diesel_mpg_uk": [
+              45,
+              55
+            ]
+          }
+        },
+        {
+          "model": "Tiguan Allspace",
+          "from": 2018,
+          "to": 2024,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Touareg",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Touran",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Sharan",
+          "from": 2010,
+          "to": 2022,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Caddy",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "Multivan",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "California",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "ID.3",
+          "from": 2020,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              45,
+              77
+            ],
+            "kwh_per_100km": [
+              15,
+              17
+            ]
+          }
+        },
+        {
+          "model": "ID.4",
+          "from": 2021,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              52,
+              77
+            ],
+            "kwh_per_100km": [
+              16,
+              18.5
+            ]
+          }
+        },
+        {
+          "model": "ID.5",
+          "from": 2022,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              77,
+              77
+            ],
+            "kwh_per_100km": [
+              16.5,
+              17
+            ]
+          }
+        },
+        {
+          "model": "ID.7",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              77,
+              86
+            ],
+            "kwh_per_100km": [
+              14.5,
+              16.5
+            ]
+          }
+        },
+        {
+          "model": "ID. Buzz",
+          "from": 2023,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              77,
+              86
+            ],
+            "kwh_per_100km": [
+              21,
+              23
+            ]
+          }
+        },
+        {
+          "model": "e-up!",
+          "from": 2014,
+          "to": 2023,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              16.4,
+              32.3
+            ],
+            "kwh_per_100km": [
+              12.7,
+              14.4
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Volvo",
+      "models": [
+        {
+          "model": "S60",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "S90",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "V40",
+          "from": 2012,
+          "to": 2019,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "V60",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "V90",
+          "from": 2017,
+          "to": 2026,
+          "powertrain": "ICE"
+        },
+        {
+          "model": "XC40",
+          "from": 2018,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              38,
+              48
+            ],
+            "diesel_mpg_uk": [
+              50,
+              58
+            ]
+          }
+        },
+        {
+          "model": "XC60",
+          "from": 2010,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              32,
+              42
+            ],
+            "diesel_mpg_uk": [
+              42,
+              52
+            ]
+          }
+        },
+        {
+          "model": "XC90",
+          "from": 2015,
+          "to": 2026,
+          "powertrain": "ICE",
+          "specs": {
+            "petrol_mpg_uk": [
+              28,
+              36
+            ],
+            "diesel_mpg_uk": [
+              40,
+              50
+            ]
+          }
+        },
+        {
+          "model": "C40 Recharge",
+          "from": 2022,
+          "to": 2024,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              69,
+              78
+            ],
+            "kwh_per_100km": [
+              16.6,
+              18
+            ]
+          }
+        },
+        {
+          "model": "EX30",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              49,
+              69
+            ],
+            "kwh_per_100km": [
+              15.4,
+              17
+            ]
+          }
+        },
+        {
+          "model": "EX40",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              78,
+              82
+            ],
+            "kwh_per_100km": [
+              17.2,
+              18.5
+            ]
+          }
+        },
+        {
+          "model": "EC40",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              69,
+              82
+            ],
+            "kwh_per_100km": [
+              16.7,
+              18
+            ]
+          }
+        },
+        {
+          "model": "EX90",
+          "from": 2024,
+          "to": 2026,
+          "powertrain": "EV",
+          "specs": {
+            "battery_kwh": [
+              111,
+              111
+            ],
+            "kwh_per_100km": [
+              21,
+              22
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

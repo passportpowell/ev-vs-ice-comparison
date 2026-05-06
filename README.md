@@ -1,5 +1,13 @@
 # EV vs ICE Intelligence Lab
 
+[![CI](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/ci.yml/badge.svg)](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/ci.yml)
+[![E2E](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/e2e.yml/badge.svg)](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/e2e.yml)
+[![CodeQL](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/codeql.yml/badge.svg)](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/codeql.yml)
+[![Refresh data](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/refresh-data.yml/badge.svg)](https://github.com/passportpowell/ev-vs-ice-comparison/actions/workflows/refresh-data.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](tsconfig.json)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](package.json)
+
 Interactive portfolio project comparing electric vehicles with petrol and diesel ICE vehicles across ownership cost, energy use, lifecycle emissions, driving style, and scenario assumptions.
 
 The repo is designed to show full-stack data product work rather than a static dashboard: Python processing builds the dataset, SQLite stores the analytical artifact, REST API routes expose comparisons, and the React UI makes the assumptions adjustable.

@@ -10,6 +10,8 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install --with-deps chromium",
     "data:build": "python -m pipeline.ev_ice_pipeline.build",
     "data:test": "pytest tests/python",
     "security:audit": "npm audit --audit-level=moderate",
@@ -18,13 +20,18 @@
   "dependencies": {
     "lucide-react": "1.14.0",
     "next": "16.2.4",
+    "onnxruntime-node": "^1.25.1",
+    "pngjs": "^7.0.0",
     "react": "19.2.5",
     "react-dom": "19.2.5",
+    "react-is": "^19.2.5",
     "recharts": "3.8.1"
   },
   "devDependencies": {
+    "@playwright/test": "1.50.0",
     "@testing-library/react": "16.3.2",
     "@types/node": "25.6.0",
+    "@types/pngjs": "^6.0.5",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
